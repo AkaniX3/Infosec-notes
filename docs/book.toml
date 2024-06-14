@@ -1,0 +1,17 @@
+[book]
+title = "Hatsu Documentation"
+authors = ["藍+85CD"]
+language = "en"
+multilingual = false
+src = "src"
+
+[rust]
+edition = "2021"
+
+[output.html]
+git-repository-url = "https://github.com/importantimport/hatsu"
+edit-url-template = "https://github.com/importantimport/hatsu/edit/main/docs/{path}"
+# https://github.com/catppuccin/mdBook#manual
+additional-css = ["./theme/catppuccin.css", "./theme/catppuccin-admonish.css"]
+default-theme = "latte"
+preferred-dark-theme = "frappe"

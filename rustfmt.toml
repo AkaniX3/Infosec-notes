@@ -1,0 +1,17 @@
+# https://github.com/rust-lang/rustfmt/blob/master/Configurations.md
+
+edition = "2021"
+empty_item_single_line = true
+group_imports = "StdExternalCrate"
+imports_granularity = "Crate"
+imports_layout = "HorizontalVertical"
+match_arm_blocks = false
+match_block_trailing_comma = true
+normalize_comments = true
+normalize_doc_attributes = true
+overflow_delimited_expr = true
+reorder_impl_items = true
+spaces_around_ranges = true
+unstable_features = true
+use_field_init_shorthand = true
+use_try_shorthand = true

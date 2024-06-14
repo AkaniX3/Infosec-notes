@@ -1,0 +1,35 @@
+name: GitHub Pages
+
+on:
+  push:
+    paths:
+      - ".github/workflows/gh-pages.yml"
+      - "docs/src/**"
+      - "docs/theme/**"
+      - "docs/book.toml"
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: docs
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: latest
+      - run: mdbook build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          cname: hatsu.cli.rs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/book
